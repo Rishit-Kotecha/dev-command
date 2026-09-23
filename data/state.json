@@ -280,11 +280,11 @@
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790190290002,
+   "updatedAt": 1790190302762,
    "issueNumber": 128,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
    "gh": {
-    "syncedAt": 1790190249779,
+    "syncedAt": 1790190302762,
     "issueState": "open",
     "prNumber": null,
     "prUrl": null,
@@ -295,12 +295,12 @@
     "checkList": [],
     "reviews": [],
     "reviewCount": 0,
-    "comments": 1,
+    "comments": 2,
     "lastComment": {
-     "user": "claude[bot]",
-     "at": "2026-09-23T19:01:27Z",
-     "body": "**Claude finished @Rishit-Kotecha's task in 1m 2s** —— [View job](https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/actions/runs/35906461921)\n\n---\n### MO-1: Change UI — needs specifics before I touch these screens\n\n- [x] Read issue and repo governance (`CLAUDE.md`, `CHANGE_GOVERNANCE_POLICY.md`)\n- [x] Locate \"Job create\" and \"OMS\" screens in the codebase\n- [x] Assess whether the request has enoug",
-     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128#issuecomment-5801071742"
+     "user": "Rishit-Kotecha",
+     "at": "2026-09-23T19:04:50Z",
+     "body": "@claude change ui is different task, this is new stock update task\n\nUpdate the same branch and pull request. Start every commit message with MO-1.",
+     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128#issuecomment-5801120399"
     },
     "preview": null
    },
@@ -368,5 +368,5 @@
    }
   }
  ],
- "updatedAt": 1790190292209
+ "updatedAt": 1790190303068
 }
