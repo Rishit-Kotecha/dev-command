@@ -1,0 +1,275 @@
+{
+ "version": 1,
+ "projects": [
+  {
+   "id": "mo",
+   "name": "Madhusudan One",
+   "code": "MO",
+   "description": "Field force ERP for VPPL.",
+   "color": "#1F7A3A",
+   "status": "active",
+   "repo": "Rishit-Kotecha/DSR-cum-CRM-VPPL",
+   "baseBranch": "main",
+   "vercelProjectId": "prj_3cHiZujNUDk8N0SXUCc4JkRqNaWi",
+   "vercelTeamId": "team_UbFaqS4KLFGZP7EhknpfVd9L",
+   "supabaseRef": "ehhnydjymuhldpnywpnb",
+   "stitchUrl": "",
+   "links": [],
+   "rules": "Every task works on its own branch. Nothing merges to main until Rishit confirms.\nZero unapproved database changes. All writes go through the existing validated entry points.\nDatabase changes are append-only: add new migration files. Never edit or drop existing tables, columns or migrations.\nEmployee login uses Supabase Auth only. Mock login stays behind VITE_DEV_MOCK_LOGIN.\nnpm ci, npm run build and npm run lint must all pass before a PR is opened.\nDeliver complete revised files, never fragments or snippets.\nNever put Supabase service-role keys or other secrets in client code.",
+   "roles": {
+    "advisor": [
+     "chatgpt"
+    ],
+    "cto": [
+     "claude-code"
+    ],
+    "designer": [
+     "stitch",
+     "gemini",
+     "claude-code",
+     "chatgpt",
+     "codex",
+     "claude"
+    ],
+    "developer": [
+     "claude-code"
+    ],
+    "pr": [
+     "claude-code"
+    ],
+    "qa": [
+     "gemini"
+    ],
+    "reviewer": [
+     "codex",
+     "gemini",
+     "chatgpt",
+     "claude",
+     "claude-code"
+    ],
+    "sql": [
+     "claude-code"
+    ],
+    "workers": [
+     "codex",
+     "claude-code",
+     "claude",
+     "gemini",
+     "chatgpt"
+    ]
+   },
+   "relations": [],
+   "nextNum": 2,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "web",
+   "name": "MML Website",
+   "code": "WEB",
+   "description": "Public website for Madhusudan Masala.",
+   "color": "#AE2220",
+   "status": "active",
+   "repo": "Rishit-Kotecha/mml-web",
+   "baseBranch": "main",
+   "vercelProjectId": "prj_2wKg55YLl8bARxmCONCHpBZFOOpj",
+   "vercelTeamId": "team_UbFaqS4KLFGZP7EhknpfVd9L",
+   "supabaseRef": "unlgzyhgpmezvykgsbbg",
+   "stitchUrl": "",
+   "links": [],
+   "rules": "",
+   "roles": {},
+   "relations": [],
+   "nextNum": 1,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "smp",
+   "name": "Sampark",
+   "code": "SMP",
+   "description": "Partner messenger for MML and VPPL.",
+   "color": "#4B5B64",
+   "status": "active",
+   "repo": "Rishit-Kotecha/Vsparten_Sampark",
+   "baseBranch": "main",
+   "vercelProjectId": "prj_gGw6uCztPfIYwFGFby3DjRt1KFh",
+   "vercelTeamId": "team_UbFaqS4KLFGZP7EhknpfVd9L",
+   "supabaseRef": "",
+   "stitchUrl": "",
+   "links": [],
+   "rules": "",
+   "roles": {},
+   "relations": [],
+   "nextNum": 1,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "bsh",
+   "name": "Bajaj SpareHub",
+   "code": "BSH",
+   "description": "",
+   "color": "#9A5B00",
+   "status": "active",
+   "repo": "Rishit-Kotecha/Madhusudan_Bajaj_SpareHub",
+   "baseBranch": "main",
+   "vercelProjectId": "prj_aPdc2XJTbnzeRUttpzS8SZc147uX",
+   "vercelTeamId": "team_UbFaqS4KLFGZP7EhknpfVd9L",
+   "supabaseRef": "",
+   "stitchUrl": "",
+   "links": [],
+   "rules": "",
+   "roles": {},
+   "relations": [],
+   "nextNum": 1,
+   "createdAt": 1790171000000
+  }
+ ],
+ "agents": [
+  {
+   "id": "manager",
+   "name": "Rishit Kotecha",
+   "kind": "human",
+   "caps": [
+    "plan",
+    "review",
+    "test"
+   ],
+   "isManager": true,
+   "branchPrefix": "",
+   "openUrl": "",
+   "notes": "",
+   "order": 0,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "claude",
+   "name": "Claude",
+   "kind": "chat",
+   "caps": [
+    "plan",
+    "review",
+    "docs",
+    "sql"
+   ],
+   "isManager": false,
+   "branchPrefix": "claude",
+   "openUrl": "https://claude.ai",
+   "notes": "Architecture, specs, cross-task review. Has your Vercel and Supabase connectors.",
+   "order": 1,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "claude-code",
+   "name": "Claude Code",
+   "kind": "coding",
+   "caps": [
+    "code",
+    "pr",
+    "sql",
+    "test"
+   ],
+   "isManager": false,
+   "branchPrefix": "claude",
+   "openUrl": "https://claude.ai/code",
+   "ghMention": "@claude",
+   "notes": "",
+   "order": 2,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "codex",
+   "name": "Codex",
+   "kind": "coding",
+   "caps": [
+    "code",
+    "pr",
+    "review",
+    "test"
+   ],
+   "isManager": false,
+   "branchPrefix": "codex",
+   "openUrl": "https://chatgpt.com/codex",
+   "ghMention": "@codex",
+   "notes": "",
+   "order": 3,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "chatgpt",
+   "name": "ChatGPT",
+   "kind": "chat",
+   "caps": [
+    "plan",
+    "docs",
+    "review"
+   ],
+   "isManager": false,
+   "branchPrefix": "",
+   "openUrl": "https://chatgpt.com",
+   "notes": "",
+   "order": 4,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "gemini",
+   "name": "Gemini",
+   "kind": "review",
+   "caps": [
+    "review",
+    "test",
+    "code"
+   ],
+   "isManager": false,
+   "branchPrefix": "gemini",
+   "openUrl": "https://gemini.google.com",
+   "notes": "",
+   "order": 5,
+   "createdAt": 1790171000000
+  },
+  {
+   "id": "stitch",
+   "name": "Stitch",
+   "kind": "design",
+   "caps": [
+    "design"
+   ],
+   "isManager": false,
+   "branchPrefix": "",
+   "openUrl": "https://stitch.withgoogle.com",
+   "notes": "",
+   "order": 6,
+   "createdAt": 1790171000000
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ftq3mhbaathj",
+   "projectId": "mo",
+   "num": 1,
+   "title": "Change UI",
+   "detail": "want to change the UI for some screen\n1. Job create\n2. OMS",
+   "role": "developer",
+   "agentId": "claude-code",
+   "reviewerId": "codex",
+   "priority": "normal",
+   "branch": "claude/mo-1-change-ui",
+   "prUrl": "",
+   "previewUrl": "",
+   "dependsOn": [],
+   "status": "working",
+   "fixes": [],
+   "history": [
+    {
+     "at": 1790178907591,
+     "text": "Created and assigned to Claude Code"
+    },
+    {
+     "at": 1790181257037,
+     "text": "Sent to Claude Code on GitHub"
+    }
+   ],
+   "createdAt": 1790178907591,
+   "updatedAt": 1790181257037
+  }
+ ],
+ "updatedAt": 1790182252133
+}
