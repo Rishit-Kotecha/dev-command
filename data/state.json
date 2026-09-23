@@ -2,7 +2,6 @@
  "version": 1,
  "projects": [
   {
-   "id": "mo",
    "name": "Madhusudan One",
    "code": "MO",
    "description": "Field force ERP for VPPL.",
@@ -59,8 +58,9 @@
     ]
    },
    "relations": [],
-   "nextNum": 2,
-   "createdAt": 1790171000000
+   "nextNum": 3,
+   "createdAt": 1790171000000,
+   "id": "mo"
   },
   {
    "id": "web",
@@ -269,7 +269,32 @@
    ],
    "createdAt": 1790178907591,
    "updatedAt": 1790181257037
+  },
+  {
+   "projectId": "mo",
+   "title": "Stock Update",
+   "detail": "",
+   "role": "developer",
+   "agentId": "claude-code",
+   "reviewerId": "codex",
+   "priority": "normal",
+   "prUrl": "",
+   "previewUrl": "",
+   "dependsOn": [],
+   "num": 2,
+   "status": "assigned",
+   "createdAt": 1790189759047,
+   "updatedAt": 1790189759047,
+   "fixes": [],
+   "history": [
+    {
+     "at": 1790189759047,
+     "text": "Created and assigned to Claude Code"
+    }
+   ],
+   "branch": "claude/mo-2-stock-update",
+   "id": "9tks7mpgreiw"
   }
  ],
- "updatedAt": 1790182252133
+ "updatedAt": 1790189762210
 }
