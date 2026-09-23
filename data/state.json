@@ -320,11 +320,15 @@
    "num": 2,
    "status": "working",
    "createdAt": 1790189759047,
-   "updatedAt": 1790190360968,
+   "updatedAt": 1790190403620,
    "fixes": [
     {
      "at": 1790189950139,
      "text": "what is left to upload stock, is all item mapped with telly guid vs mo items"
+    },
+    {
+     "at": 1790190403620,
+     "text": "what work is left for upload stock from tally"
     }
    ],
    "history": [
@@ -339,12 +343,15 @@
     {
      "at": 1790189950139,
      "text": "Fixes sent to Claude Code: what is left to upload stock, is all item mapped with telly guid vs mo items"
+    },
+    {
+     "at": 1790190403620,
+     "text": "Fixes sent to Claude Code: what work is left for upload stock from tally"
     }
    ],
    "branch": "claude/mo-2-stock-update",
    "issueNumber": 127,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127",
-   "id": "9tks7mpgreiw",
    "gh": {
     "syncedAt": 1790190360968,
     "issueState": "open",
@@ -365,8 +372,9 @@
      "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127#issuecomment-5801037831"
     },
     "preview": null
-   }
+   },
+   "id": "9tks7mpgreiw"
   }
  ],
- "updatedAt": 1790190361429
+ "updatedAt": 1790190405624
 }
