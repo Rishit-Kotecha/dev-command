@@ -271,12 +271,12 @@
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790190085700,
+   "updatedAt": 1790190102007,
    "issueNumber": 128,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
    "id": "ftq3mhbaathj",
    "gh": {
-    "syncedAt": 1790190085700,
+    "syncedAt": 1790190102007,
     "issueState": "open",
     "prNumber": null,
     "prUrl": null,
@@ -287,8 +287,13 @@
     "checkList": [],
     "reviews": [],
     "reviewCount": 0,
-    "comments": 0,
-    "lastComment": null,
+    "comments": 1,
+    "lastComment": {
+     "user": "claude[bot]",
+     "at": "2026-09-23T19:01:27Z",
+     "body": "Claude Code is working… <img src=\"https://github.com/user-attachments/assets/5ac382c7-e004-429b-8e35-7feb3e8f9c6f\" width=\"14px\" height=\"14px\" style=\"vertical-align: middle; margin-left: 4px;\" />\n\nI'll analyze this and get back to you.\n\n[View job run](https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/actions/runs/35906461921)",
+     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128#issuecomment-5801071742"
+    },
     "preview": null
    }
   },
@@ -354,5 +359,5 @@
    }
   }
  ],
- "updatedAt": 1790190085970
+ "updatedAt": 1790190102291
 }
