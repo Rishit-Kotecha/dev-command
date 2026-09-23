@@ -271,10 +271,26 @@
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790190065034,
+   "updatedAt": 1790190074235,
    "issueNumber": 128,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
-   "id": "ftq3mhbaathj"
+   "id": "ftq3mhbaathj",
+   "gh": {
+    "syncedAt": 1790190074235,
+    "issueState": "open",
+    "prNumber": null,
+    "prUrl": null,
+    "prState": null,
+    "prHead": null,
+    "prSha": null,
+    "checks": "none",
+    "checkList": [],
+    "reviews": [],
+    "reviewCount": 0,
+    "comments": 0,
+    "lastComment": null,
+    "preview": null
+   }
   },
   {
    "projectId": "mo",
@@ -338,5 +354,5 @@
    }
   }
  ],
- "updatedAt": 1790190067289
+ "updatedAt": 1790190074549
 }
