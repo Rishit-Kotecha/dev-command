@@ -280,11 +280,11 @@
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790190302762,
+   "updatedAt": 1790190720247,
    "issueNumber": 128,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
    "gh": {
-    "syncedAt": 1790190302762,
+    "syncedAt": 1790190720247,
     "issueState": "open",
     "prNumber": null,
     "prUrl": null,
@@ -295,12 +295,12 @@
     "checkList": [],
     "reviews": [],
     "reviewCount": 0,
-    "comments": 2,
+    "comments": 3,
     "lastComment": {
-     "user": "Rishit-Kotecha",
-     "at": "2026-09-23T19:04:50Z",
-     "body": "@claude change ui is different task, this is new stock update task\n\nUpdate the same branch and pull request. Start every commit message with MO-1.",
-     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128#issuecomment-5801120399"
+     "user": "claude[bot]",
+     "at": "2026-09-23T19:05:09Z",
+     "body": "**Claude finished @Rishit-Kotecha's task in 53s** —— [View job](https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/actions/runs/35906892624)\n\n---\n### MO-1: new stock update task — need specifics before I touch anything\n\n- [x] Read the new trigger comment — this issue is now \"new stock update task\" (change-UI scope dropped)\n- [x] Checked repo governance rules (`CLAUDE.md`) for how an undescribed ch",
+     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128#issuecomment-5801124730"
     },
     "preview": null
    },
@@ -320,7 +320,7 @@
    "num": 2,
    "status": "working",
    "createdAt": 1790189759047,
-   "updatedAt": 1790190450263,
+   "updatedAt": 1790190720994,
    "fixes": [
     {
      "at": 1790189950139,
@@ -353,7 +353,7 @@
    "issueNumber": 127,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127",
    "gh": {
-    "syncedAt": 1790190450263,
+    "syncedAt": 1790190720994,
     "issueState": "open",
     "prNumber": null,
     "prUrl": null,
@@ -368,7 +368,7 @@
     "lastComment": {
      "user": "claude[bot]",
      "at": "2026-09-23T19:07:05Z",
-     "body": "Claude Code is working… <img src=\"https://github.com/user-attachments/assets/5ac382c7-e004-429b-8e35-7feb3e8f9c6f\" width=\"14px\" height=\"14px\" style=\"vertical-align: middle; margin-left: 4px;\" />\n\nI'll analyze this and get back to you.\n\n[View job run](https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/actions/runs/35907117159)",
+     "body": "**Claude finished @Rishit-Kotecha's task in 2m 26s** —— [View job](https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/actions/runs/35907117159)\n\n---\n### MO-2: Stock Update — what's left to upload stock from Tally\n\n- [x] Read the trigger comment (follow-up to the earlier \"what is left to upload stock\" question)\n- [x] Re-verified current code state at the latest migration (`563`) — item-match logic,",
      "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127#issuecomment-5801152510"
     },
     "preview": null
@@ -376,5 +376,5 @@
    "id": "9tks7mpgreiw"
   }
  ],
- "updatedAt": 1790190450566
+ "updatedAt": 1790190721287
 }
