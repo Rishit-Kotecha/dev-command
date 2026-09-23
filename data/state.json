@@ -255,7 +255,12 @@
    "previewUrl": "",
    "dependsOn": [],
    "status": "working",
-   "fixes": [],
+   "fixes": [
+    {
+     "at": 1790190290002,
+     "text": "change ui is different task, this is new stock update task"
+    }
+   ],
    "history": [
     {
      "at": 1790178907591,
@@ -268,13 +273,16 @@
     {
      "at": 1790190065034,
      "text": "Sent to Claude Code on GitHub (issue #128)"
+    },
+    {
+     "at": 1790190290002,
+     "text": "Fixes sent to Claude Code: change ui is different task, this is new stock update task"
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790190249779,
+   "updatedAt": 1790190290002,
    "issueNumber": 128,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
-   "id": "ftq3mhbaathj",
    "gh": {
     "syncedAt": 1790190249779,
     "issueState": "open",
@@ -295,7 +303,8 @@
      "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128#issuecomment-5801071742"
     },
     "preview": null
-   }
+   },
+   "id": "ftq3mhbaathj"
   },
   {
    "projectId": "mo",
@@ -359,5 +368,5 @@
    }
   }
  ],
- "updatedAt": 1790190250071
+ "updatedAt": 1790190292209
 }
