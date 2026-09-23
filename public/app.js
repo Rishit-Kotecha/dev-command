@@ -177,19 +177,37 @@ const API = {
     return d;
   },
 };
-function applyState(st) { S.projects = (st && st.projects) || []; S.agents = (st && st.agents) || []; S.tasks = (st && st.tasks) || []; }
+function applyState(st) { S.projects = (st && st.projects) || []; S.agents = (st && st.agents) || []; S.tasks = (st && st.tasks) || []; S.baseAt = (st && st.updatedAt) || 0; }
 function snapshotState() { return { version: 1, projects: S.projects, agents: S.agents, tasks: S.tasks }; }
-S.saveTimer = 0; S.dirty = false; S.saving = false; S.health = null; S.threads = {}; S.syncing = false; S.lastSync = 0;
+S.saveTimer = 0; S.dirty = false; S.saving = false; S.health = null; S.threads = {}; S.syncing = false; S.lastSync = 0; S.baseAt = 0; S.saveFails = 0;
 function scheduleSave(msg) { S.dirty = true; clearTimeout(S.saveTimer); S.saveTimer = setTimeout(() => flushSave(msg), 500); }
 async function flushSave(msg) {
-  if (S.saving) return;
+  if (S.saving || S.mode !== 'server') return;
   clearTimeout(S.saveTimer);
   S.saving = true; S.dirty = false;
-  try { await API.send('/api/state', 'PUT', { state: snapshotState(), message: msg || 'Dev Command: update' }); }
-  catch (e) { S.dirty = true; toast('Couldn’t save: ' + e.message); }
-  finally { S.saving = false; if (S.dirty) scheduleSave(msg); }
+  try {
+    const r = await API.send('/api/state', 'PUT', { state: snapshotState(), message: msg || 'Dev Command: update', expect: S.baseAt || undefined });
+    S.baseAt = (r && r.state && r.state.updatedAt) || S.baseAt;
+    S.saveFails = 0;
+  } catch (e) {
+    if (e.status === 409) {
+      // Someone else (another tab or a GitHub check) saved first. Take the latest and drop this change.
+      try { const cur = await API.get('/api/state'); applyState(cur.state); } catch (_) { /* keep local */ }
+      S.dirty = false; S.saveFails = 0;
+      toast('The data changed elsewhere, so this page reloaded the latest copy. Please redo your last change.');
+      render();
+    } else {
+      S.dirty = true; S.saveFails += 1;
+      toast('Couldn’t save: ' + e.message + (S.saveFails >= 3 ? '. Fix the connection and reload before changing more.' : ''));
+    }
+  } finally {
+    S.saving = false;
+    if (S.dirty && S.saveFails > 0 && S.saveFails < 3) setTimeout(() => flushSave(msg), 1500 * S.saveFails);
+    render();
+  }
 }
 async function save(col, id, data) {
+  if (S.mode !== 'server') { toast('Not saved: the app isn’t connected to its storage. Fix the settings and reload.'); return false; }
   const body = clean(data);
   const arr = S[col];
   const i = arr.findIndex((x) => x.id === id);
@@ -200,7 +218,7 @@ async function save(col, id, data) {
   return true;
 }
 async function patch(col, id, p) { const cur = byId(col, id); if (!cur) return false; return save(col, id, Object.assign({}, cur, p)); }
-async function remove(col, id) { S[col] = S[col].filter((x) => x.id !== id); render(); scheduleSave(); return true; }
+async function remove(col, id) { if (S.mode !== 'server') { toast('Not saved: the app isn’t connected to its storage.'); return false; } S[col] = S[col].filter((x) => x.id !== id); render(); scheduleSave(); return true; }
 async function refreshState() {
   if (S.dirty || S.saving) return;
   try { const r = await API.get('/api/state'); if (!S.dirty && !S.saving) { applyState(r.state); render(); } } catch (_) { /* keep what we have */ }
@@ -224,7 +242,7 @@ async function syncGitHub(quiet, taskId) {
   try {
     if (S.dirty || S.saving) await flushSave();
     const r = await API.send('/api/sync', 'POST', taskId ? { taskId } : {});
-    if (!S.dirty && !S.saving) applyState(r.state);
+    if (!S.dirty && !S.saving && r.state) applyState(r.state);
     S.lastSync = Date.now();
     if (taskId) { const t = task(taskId); if (t && t.issueNumber) await loadThread(t, true); }
     if (r.changes && r.changes.length) toast(r.changes.map((c) => c.code + ' → ' + (LABELS[c.to] || c.to)).join(', '));
@@ -343,6 +361,7 @@ function mainHtml() {
   let banner = '';
   if (S.mode === 'error') banner += '<p class="note stop">Can’t load saved data: ' + esc(S.dbErr || 'unknown error') + '. Check GITHUB_TOKEN and DATA_REPO in this app’s Vercel environment variables, then reload.</p>';
   else if (S.health && !S.health.github) banner += '<p class="note warn">GITHUB_TOKEN isn’t set, so tasks can’t be sent to GitHub or checked. Add it in Vercel and redeploy.</p>';
+  if (S.mode === 'server' && S.dirty && S.saveFails >= 3) banner += '<p class="note stop">Your last change could not be saved. Check the connection, then reload this page.</p>';
   if (!ready) return banner + '<div class="loading" role="status">Loading your team…</div>';
   const v = S.view.tab;
   return banner + (v === 'project' ? viewProject() : v === 'projects' ? viewProjects() : v === 'team' ? viewTeam() : viewToday());
@@ -880,7 +899,7 @@ function githubSection(t, p, a, rv) {
   h += '<div class="row gh-actions">' +
     '<button class="btn sm" data-act="gh-refresh" data-id="' + esc(t.id) + '" ' + (busy || S.syncing ? 'disabled' : '') + '>Refresh</button>' +
     (pr && pr.state === 'open' && rvMention ? '<button class="btn sm" data-act="gh-review" data-id="' + esc(t.id) + '">Ask ' + esc(rv.name) + ' to review</button>' : '') +
-    (mention && (d || t.issueNumber) ? '<button class="btn sm" data-act="gh-fix" data-id="' + esc(t.id) + '">Send fixes to ' + esc(a.name) + '</button>' : '') +
+    (mention && (d || t.issueNumber) ? '<button class="btn sm" data-act="gh-fix" data-id="' + esc(t.id) + '">Message ' + esc(a.name) + '</button>' : '') +
     (pr && pr.state === 'open' && S.health && S.health.claude ? '<button class="btn sm" data-act="gh-verdict" data-id="' + esc(t.id) + '">' + (t.verdict ? 'Verdict again' : 'Get verdict') + '</button>' : '') +
     (pr && pr.state === 'open' ? '<button class="btn sm you" data-act="gh-merge" data-id="' + esc(t.id) + '">Merge and deploy</button>' : '') +
     '</div></div>';
@@ -920,17 +939,27 @@ async function askReview(id) {
 function sendFixes(id) {
   const t = task(id); const a = t && agent(t.agentId);
   if (!t || !a || !ghMention(a)) return;
+  const T0 = S.threads[id]; const pr0 = T0 && T0.data && T0.data.pr;
+  const onPR = !!(pr0 && pr0.state === 'open');
   promptSheet({
-    title: code(t) + ': send fixes to ' + a.name, label: 'What should change?', multiline: true, okLabel: 'Post on GitHub',
-    placeholder: 'The total doesn’t include GST. Keep the migration append-only.',
+    title: code(t) + ': message ' + a.name,
+    label: onPR ? 'What should change in the pull request?' : 'Your question or instruction',
+    multiline: true, okLabel: 'Post on GitHub',
+    placeholder: onPR ? 'The total doesn’t include GST. Keep the migration append-only.' : 'Is every item mapped between Tally GUID and MO items? If yes, build the upload as described.',
     onOk: async (v) => {
       const T = S.threads[id]; const pr = T && T.data && T.data.pr;
-      const target = pr && pr.state === 'open' ? pr.number : t.issueNumber;
+      const open = !!(pr && pr.state === 'open');
+      const target = open ? pr.number : t.issueNumber;
+      const body = ghMention(a) + ' ' + v + (open ? '\n\nUpdate the same branch and pull request. Start every commit message with ' + code(t) + '.' : '');
       try {
-        await ghComment(t, target, ghMention(a) + ' ' + v + '\n\nUpdate the same branch and pull request. Start every commit message with ' + code(t) + '.', 'Fixes sent to ' + a.name + ': ' + v);
+        await ghComment(t, target, body, (open ? 'Change requested from ' : 'Message to ') + a.name + ': ' + v);
         const cur = task(id);
-        await save('tasks', id, Object.assign({}, cur, { status: 'working', fixes: [...(cur.fixes || []), { at: now(), text: v }].slice(-10), updatedAt: now() }));
-        toast('Posted. ' + a.name + ' will update the pull request.');
+        const upd = { updatedAt: now() };
+        if (open) { upd.status = 'working'; upd.fixes = [...(cur.fixes || []), { at: now(), text: v }].slice(-10); }
+        else if (['backlog', 'assigned'].includes(cur.status || 'backlog')) upd.status = 'working';
+        await save('tasks', id, Object.assign({}, cur, upd));
+        toast('Posted. ' + a.name + ' usually replies on GitHub within a minute or two.');
+        setTimeout(() => { const tt = task(id); if (tt) loadThread(tt, true); }, 75000);
       } catch (e) { toast('Couldn’t post: ' + e.message); }
     },
   });
