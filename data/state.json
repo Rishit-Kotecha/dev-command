@@ -284,7 +284,7 @@
    "num": 2,
    "status": "working",
    "createdAt": 1790189759047,
-   "updatedAt": 1790189950139,
+   "updatedAt": 1790189963945,
    "fixes": [
     {
      "at": 1790189950139,
@@ -308,8 +308,29 @@
    "branch": "claude/mo-2-stock-update",
    "issueNumber": 127,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127",
-   "id": "9tks7mpgreiw"
+   "id": "9tks7mpgreiw",
+   "gh": {
+    "syncedAt": 1790189963945,
+    "issueState": "open",
+    "prNumber": null,
+    "prUrl": null,
+    "prState": null,
+    "prHead": null,
+    "prSha": null,
+    "checks": "none",
+    "checkList": [],
+    "reviews": [],
+    "reviewCount": 0,
+    "comments": 2,
+    "lastComment": {
+     "user": "Rishit-Kotecha",
+     "at": "2026-09-23T18:59:10Z",
+     "body": "@claude what is left to upload stock, is all item mapped with telly guid vs mo items\n\nUpdate the same branch and pull request. Start every commit message with MO-2.",
+     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127#issuecomment-5801032774"
+    },
+    "preview": null
+   }
   }
  ],
- "updatedAt": 1790189952273
+ "updatedAt": 1790189964238
 }
