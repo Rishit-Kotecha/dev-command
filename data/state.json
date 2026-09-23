@@ -242,7 +242,6 @@
  ],
  "tasks": [
   {
-   "id": "ftq3mhbaathj",
    "projectId": "mo",
    "num": 1,
    "title": "Change UI",
@@ -265,10 +264,17 @@
     {
      "at": 1790181257037,
      "text": "Sent to Claude Code on GitHub"
+    },
+    {
+     "at": 1790190065034,
+     "text": "Sent to Claude Code on GitHub (issue #128)"
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790181257037
+   "updatedAt": 1790190065034,
+   "issueNumber": 128,
+   "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
+   "id": "ftq3mhbaathj"
   },
   {
    "projectId": "mo",
@@ -332,5 +338,5 @@
    }
   }
  ],
- "updatedAt": 1790189964238
+ "updatedAt": 1790190067289
 }
