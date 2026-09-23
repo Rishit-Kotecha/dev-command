@@ -320,7 +320,7 @@
    "num": 2,
    "status": "working",
    "createdAt": 1790189759047,
-   "updatedAt": 1790190414893,
+   "updatedAt": 1790190450263,
    "fixes": [
     {
      "at": 1790189950139,
@@ -353,7 +353,7 @@
    "issueNumber": 127,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127",
    "gh": {
-    "syncedAt": 1790190414893,
+    "syncedAt": 1790190450263,
     "issueState": "open",
     "prNumber": null,
     "prUrl": null,
@@ -364,17 +364,17 @@
     "checkList": [],
     "reviews": [],
     "reviewCount": 0,
-    "comments": 4,
+    "comments": 5,
     "lastComment": {
-     "user": "Rishit-Kotecha",
-     "at": "2026-09-23T19:06:44Z",
-     "body": "@claude what work is left for upload stock from tally\n\nUpdate the same branch and pull request. Start every commit message with MO-2.",
-     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127#issuecomment-5801147302"
+     "user": "claude[bot]",
+     "at": "2026-09-23T19:07:05Z",
+     "body": "Claude Code is working… <img src=\"https://github.com/user-attachments/assets/5ac382c7-e004-429b-8e35-7feb3e8f9c6f\" width=\"14px\" height=\"14px\" style=\"vertical-align: middle; margin-left: 4px;\" />\n\nI'll analyze this and get back to you.\n\n[View job run](https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/actions/runs/35907117159)",
+     "url": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127#issuecomment-5801152510"
     },
     "preview": null
    },
    "id": "9tks7mpgreiw"
   }
  ],
- "updatedAt": 1790190415215
+ "updatedAt": 1790190450566
 }
