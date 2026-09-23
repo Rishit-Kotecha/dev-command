@@ -271,12 +271,12 @@
     }
    ],
    "createdAt": 1790178907591,
-   "updatedAt": 1790190074235,
+   "updatedAt": 1790190085700,
    "issueNumber": 128,
    "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/128",
    "id": "ftq3mhbaathj",
    "gh": {
-    "syncedAt": 1790190074235,
+    "syncedAt": 1790190085700,
     "issueState": "open",
     "prNumber": null,
     "prUrl": null,
@@ -354,5 +354,5 @@
    }
   }
  ],
- "updatedAt": 1790190074549
+ "updatedAt": 1790190085970
 }
