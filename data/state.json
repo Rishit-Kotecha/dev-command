@@ -282,19 +282,25 @@
    "previewUrl": "",
    "dependsOn": [],
    "num": 2,
-   "status": "assigned",
+   "status": "working",
    "createdAt": 1790189759047,
-   "updatedAt": 1790189759047,
+   "updatedAt": 1790189892206,
    "fixes": [],
    "history": [
     {
      "at": 1790189759047,
      "text": "Created and assigned to Claude Code"
+    },
+    {
+     "at": 1790189892206,
+     "text": "Sent to Claude Code on GitHub (issue #127)"
     }
    ],
    "branch": "claude/mo-2-stock-update",
+   "issueNumber": 127,
+   "issueUrl": "https://github.com/Rishit-Kotecha/DSR-cum-CRM-VPPL/issues/127",
    "id": "9tks7mpgreiw"
   }
  ],
- "updatedAt": 1790189762210
+ "updatedAt": 1790189894234
 }
