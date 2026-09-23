@@ -284,8 +284,13 @@
    "num": 2,
    "status": "working",
    "createdAt": 1790189759047,
-   "updatedAt": 1790189892206,
-   "fixes": [],
+   "updatedAt": 1790189950139,
+   "fixes": [
+    {
+     "at": 1790189950139,
+     "text": "what is left to upload stock, is all item mapped with telly guid vs mo items"
+    }
+   ],
    "history": [
     {
      "at": 1790189759047,
@@ -294,6 +299,10 @@
     {
      "at": 1790189892206,
      "text": "Sent to Claude Code on GitHub (issue #127)"
+    },
+    {
+     "at": 1790189950139,
+     "text": "Fixes sent to Claude Code: what is left to upload stock, is all item mapped with telly guid vs mo items"
     }
    ],
    "branch": "claude/mo-2-stock-update",
@@ -302,5 +311,5 @@
    "id": "9tks7mpgreiw"
   }
  ],
- "updatedAt": 1790189894234
+ "updatedAt": 1790189952273
 }
